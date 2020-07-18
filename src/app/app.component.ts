@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
+import {blue} from './validators/blue.directive';
 
 @Component({
   selector: 'app-root',
@@ -11,9 +12,9 @@ export class AppComponent {
 
   constructor(private fb: FormBuilder) {
     this.flagQuiz = fb.group({
-      firstColor: new FormControl(''),
+      firstColor: new FormControl('', blue()),
       secondColor: new FormControl(''),
       thirdColor: new FormControl(''),
-    });
+    }, {updateOn: 'blur'});
   }
 }

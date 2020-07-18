@@ -9,6 +9,7 @@
       <div class="form-group">
         <label for="firstColor">Enter the first color of the flag of France</label>
         <input class="form-control" id="firstColor" formControlName="firstColor" type="text"/>
+        <div *ngIf="flagQuiz.get('firstColor').errors?.wrongColor" class="invalid-feedback">Sorry, {{flagQuiz.get('firstColor')?.errors?.wrongColor}} is wrong</div>
       </div>
       <div class="form-group">
         <label for="secondColor">Enter the second color of the flag of France</label>
@@ -19,6 +20,9 @@
         <input class="form-control" id="thirdColor" formControlName="thirdColor" type="text"/>
       </div>
     </form>
+
+    <!-- TODO add an example of a template driven form -->
+
     <div class="col-md-6 country-image-container">
       <img class="country-image" src="../assets/france.png">
     </div>
