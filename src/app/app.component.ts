@@ -9,6 +9,11 @@ import {blue} from './validators/blue.directive';
 })
 export class AppComponent {
   flagQuiz: FormGroup;
+  flagQuizAnswers = {
+    firstColor: '',
+    secondColor: '',
+    thirdColor: '',
+  };
 
   constructor(private fb: FormBuilder) {
     this.flagQuiz = fb.group({
