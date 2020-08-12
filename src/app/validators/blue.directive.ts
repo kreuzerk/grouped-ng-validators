@@ -1,10 +1,7 @@
 import {AbstractControl, NG_VALIDATORS, Validator, ValidatorFn} from '@angular/forms';
 import {Directive} from '@angular/core';
 
-export function blue(): ValidatorFn {
-  return (control: AbstractControl): { [key: string]: any } | null =>
-    control.value?.toLowerCase() === 'blue' ? null : {wrongColor: control.value};
-}
+import {ColorValidators} from './color.validators';
 
 @Directive({
   selector: '[blue]',
@@ -13,6 +10,6 @@ export function blue(): ValidatorFn {
 export class BlueValidatorDirective implements Validator {
 
   validate(control: AbstractControl): { [key: string]: any } | null {
-    return blue()(control);
+    return ColorValidators.blue(control);
   }
 }
